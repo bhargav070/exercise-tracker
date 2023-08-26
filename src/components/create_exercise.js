@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; // You need to have axios installed for making HTTP requests
+import axios from "axios";
+import "./style.css"; 
 
 function CreateExercise() {
   const [username, setUsername] = useState("");
@@ -9,13 +10,12 @@ function CreateExercise() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    // Fetch the list of users when the component mounts
     axios
-      .get("http://localhost:5000/users") // Replace with your API endpoint for fetching users
+      .get("http://localhost:5000/users")
       .then((response) => {
         if (response.data.length > 0) {
           setUsers(response.data.map((user) => user.username));
-          setUsername(response.data[0].username); // Set the default username to the first user
+          setUsername(response.data[0].username);
         }
       })
       .catch((error) => {
@@ -49,11 +49,9 @@ function CreateExercise() {
       date,
     };
 
-    console.log(exercise);
-
     // Send the exercise data to the server for saving
     axios
-      .post("http://localhost:5000/exercises/add", exercise) 
+      .post("http://localhost:5000/exercises/add", exercise)
       .then((res) => {
         console.log(res.data);
       })
@@ -71,17 +69,14 @@ function CreateExercise() {
   };
 
   return (
-    <div>
+    <div className="create-exercise-container">
       <h3>Create New Exercise</h3>
-      <form onSubmit={handleSubmit} className="w-75">
+      <form onSubmit={handleSubmit} className="exercise-form">
         <div className="form-group mb-3">
-          {" "}
-          {/* Added margin-bottom for gap */}
-          <label className="mb-2">Username: </label>{" "}
-          {/* Added margin-bottom for gap */}
+          <label className="mb-2">Username: </label>
           <select
             required
-            className="form-control"
+            className="form-control input-field"
             name="username"
             value={username}
             onChange={handleUserChange}
@@ -94,43 +89,34 @@ function CreateExercise() {
           </select>
         </div>
         <div className="form-group mb-3">
-          {" "}
-          {/* Added margin-bottom for gap */}
-          <label className="mb-2">Description: </label>{" "}
-          {/* Added margin-bottom for gap */}
+          <label className="mb-2">Description: </label>
           <input
             type="text"
             required
-            className="form-control"
+            className="form-control input-field"
             name="description"
             value={description}
             onChange={handleDescriptionChange}
           />
         </div>
         <div className="form-group mb-3">
-          {" "}
-          {/* Added margin-bottom for gap */}
-          <label className="mb-2">Duration (in minutes): </label>{" "}
-          {/* Added margin-bottom for gap */}
+          <label className="mb-2">Duration (in minutes): </label>
           <input
             type="number"
             required
-            className="form-control"
+            className="form-control input-field"
             name="duration"
             value={duration}
             onChange={handleDurationChange}
           />
         </div>
         <div className="form-group mb-3">
-          {" "}
-          {/* Added margin-bottom for gap */}
-          <label className="mb-2">Date: </label>{" "}
-          {/* Added margin-bottom for gap */}
+          <label className="mb-2">Date: </label>
           <div>
             <input
               type="date"
               required
-              className="form-control"
+              className="form-control input-field"
               name="date"
               value={date.toISOString().split("T")[0]}
               onChange={handleDateChange}
@@ -138,9 +124,7 @@ function CreateExercise() {
           </div>
         </div>
         <div className="form-group">
-          {" "}
-          {/* No margin-bottom for the submit button */}
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn submit-button">
             Create Exercise
           </button>
         </div>

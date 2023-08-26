@@ -1,0 +1,160 @@
+/* styles.css */
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .exercise-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .form-control {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .select-input {
+    width: 100%;
+  }
+  
+  .text-input {
+    width: 100%;
+  }
+  
+  .date-picker {
+    width: 100%;
+  }
+  
+  .submit-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+
+  .form-group{
+    margin: 0.5rem;
+  }
+
+  
+  /* Exercise List styling */
+
+  /* ExerciseList.css */
+.exercise-list-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .exercise-list-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .exercise-list-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .exercise-list-table th,
+  .exercise-list-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .exercise-list-table th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .edit-button,
+  .delete-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover,
+  .delete-button:hover {
+    background-color: #0056b3;
+  }
+
+  .edit_link {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /*  */
+
+  /* CreateExercise.css */
+
+.create-exercise-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .exercise-form {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to bottom, #414243, #7b7e81);
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+  }
+  
+  .input-field {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Add any additional styles you want to customize the appearance */
+  

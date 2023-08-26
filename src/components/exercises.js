@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './style.css';
 
+function Exercise(props) {
+  return (
+    <tr>
+      <td>{props.exercise.username}</td>
+      <td>{props.exercise.description}</td>
+      <td>{props.exercise.duration}</td>
+      <td>{props.exercise.date.substring(0, 10)}</td>
+      <td>
+        <button className="edit-button">
+          <Link className="edit_link" to={"/edit/" + props.exercise._id}>Edit</Link>
+        </button>
+        <button className="delete-button" onClick={() => { props.deleteExercise(props.exercise._id) }}>
+          Delete
+        </button>
+      </td>
+    </tr>
+  );
+}
 
-const Exercise = (props) => {
-  return(
-  <tr>
-    <td>{props.exercise.username}</td>
-    <td>{props.exercise.description}</td>
-    <td>{props.exercise.duration}</td>
-    <td>{props.exercise.date.substring(0, 10)}</td>
-    <td>
-      <Link to={"/edit/" + props.exercise._id}>edit</Link> |{" "}
-      <button type="button" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</button>
-    </td>
-  </tr>
-)};
-
-function ExercisesList() {
+function ExerciseList() {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
@@ -44,9 +49,9 @@ function ExercisesList() {
   };
 
   return (
-    <div>
-      <h3>Logged Exercises</h3>
-      <table className="table">
+    <div className="exercise-list-container">
+      <h3 className="exercise-list-heading">Logged Exercises</h3>
+      <table className="exercise-list-table">
         <thead className="thead-light">
           <tr>
             <th>Username</th>
@@ -64,4 +69,4 @@ function ExercisesList() {
   );
 }
 
-export default ExercisesList;
+export default ExerciseList;
