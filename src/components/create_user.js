@@ -31,10 +31,10 @@ function CreateUser() {
   };
 
   return (
-    <div>
+    <div  className="create-exercise-container">
       <h3>Create New User</h3>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="exercise-form">
           <label>Username: </label><br/>
           <input
             type="text"

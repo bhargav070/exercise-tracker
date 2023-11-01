@@ -156,5 +156,15 @@
     background-color: #0056b3;
   }
   
-  /* Add any additional styles you want to customize the appearance */
   
+  .user-form {
+    display: flex;
+    max-width: 500px;
+    margin: auto;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to bottom, #9d9e9f, #7b7e81);
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+  }
