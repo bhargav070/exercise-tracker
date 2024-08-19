@@ -1,68 +1,49 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./AuthForm.css"; // Import the CSS file
+import "./auth.css";
 
 function Login() {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState(""); // Add password state
-
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const user = {
-      username,
-      password, // Include password in the request
-    };
-
-    // Send the user data to the server for login
-    axios
-      .post("http://localhost:5000/users/login", user) // Replace with your login API endpoint
+    axios.post("http://localhost:5000/auth/login", { username, password })
       .then((res) => {
-        console.log(res.data);
-        // Optionally, you can redirect to another page or perform other actions after a successful login.
+        localStorage.setItem("token", res.data.token);
+        window.location = "/exercises";
       })
       .catch((err) => {
-        console.error("Error: " + err);
+        console.error("Error: " + err.response.data.msg);
       });
-
-    // Reset the form
-    setUsername("");
-    setPassword("");
   };
 
   return (
-    <div className="auth-form">
+    <div className="auth-container">
       <h3>Login</h3>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Username: </label>
+        <div className="auth-form">
+          <label>Username: </label><br />
           <input
             type="text"
             required
             className="form-control"
             value={username}
-            onChange={handleUsernameChange}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div className="form-group">
-          <label>Password: </label>
+        <div className="auth-form">
+          <label>Password: </label><br />
           <input
-            type="password" // Use password type for password input
+            type="password"
             required
             className="form-control"
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group"><br />
           <button type="submit" className="btn btn-primary">
             Login
           </button>

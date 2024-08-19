@@ -105,6 +105,7 @@
   .edit-button:hover,
   .delete-button:hover {
     background-color: #0056b3;
+    color: white;
   }
 
   .edit_link {
@@ -167,4 +168,46 @@
     padding: 20px;
     border-radius: 10px;
     color: #fff;
+  }
+
+  /* styling for home.js */
+
+  .home-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .home-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .home-container p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+  }
+  
+  .home-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .home-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* styling for home.js */
+  .navbar-btn {
+    margin: 10px;
   }

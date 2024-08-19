@@ -16,7 +16,13 @@ function EditExercise() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/exercises/' + id)
+    const token = localStorage.getItem('token');
+
+    axios.get('http://localhost:5000/exercises/' + id , {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
       .then(response => {
         setUsername(response.data.username);
         setDescription(response.data.description);
@@ -64,12 +70,16 @@ function EditExercise() {
       date
     };
 
-    console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/update/' + id, exercise)
+    const token = localStorage.getItem('token');
+    axios.post('http://localhost:5000/exercises/update/' + id, exercise , {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
       .then(res => console.log(res.data));
 
-    window.location = '/';
+    window.location = '/exercises';
   }
 
   return (

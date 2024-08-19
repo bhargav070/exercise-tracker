@@ -1,0 +1,79 @@
+/* Container for the entire auth page */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: #f0f2f5; /* Light gray background */
+  padding: 20px;
+}
+
+/* Styling for the heading */
+.auth-container h3 {
+  font-size: 2.5rem;
+  color: #333; /* Dark gray color */
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.auth-container form {
+  background: #fff; /* White background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Styling for form fields */
+.auth-form {
+  margin-bottom: 15px;
+}
+
+.auth-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555; /* Medium gray color */
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.auth-form input:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none;
+}
+
+/* Styling for the submit button */
+.form-group {
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff; /* Blue background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}

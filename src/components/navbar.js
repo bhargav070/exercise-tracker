@@ -1,5 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
+
+
+function handleLogout() {
+  localStorage.removeItem('token');
+  window.location = '/login';
+}
 
 function navbar() {
   return (
@@ -10,22 +16,32 @@ function navbar() {
       <div className="collpase navbar-collapse">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
-            <Link to="/" className="nav-link">
+            <Link to="/exercises" className="nav-link">
               Exercises
             </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/create" className="nav-link">
+            <Link to="/create-exercise" className="nav-link">
               Create Exercise Log
             </Link>
           </li>
-          <li className="navbar-item">
-            <Link to="/user" className="nav-link">
-              Create User
-            </Link>
-          </li>
         </ul>
+
+        <div className="navbar-btn">
+          <button className="navbar-item btn btn-outline-primary">
+            <Link to="/signup" className="nav-link">
+              Signup
+            </Link>
+          </button>
+        </div>
+
+        <div className="navbar-btn">
+          <button className="btn btn-outline-danger logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </div>
+      <Outlet />
     </nav>
   );
 }

@@ -26,7 +26,15 @@ function ExerciseList() {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/exercises/')
+    // Get token from localStorage
+    const token = localStorage.getItem('token');
+
+    // Fetch exercises with token in headers
+    axios.get('http://localhost:5000/exercises/', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
       .then(response => {
         setExercises(response.data);
       })
@@ -36,10 +44,20 @@ function ExerciseList() {
   }, []);
 
   const deleteExercise = (id) => {
-    axios.delete('http://localhost:5000/exercises/' + id)
-      .then(response => { console.log(response.data) });
+    const token = localStorage.getItem('token');
 
-    setExercises(exercises.filter(el => el._id !== id));
+    axios.delete('http://localhost:5000/exercises/' + id, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        console.log(response.data);
+        setExercises(exercises.filter(el => el._id !== id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const exerciseList = () => {

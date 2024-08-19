@@ -1,10 +1,12 @@
 const router = require('express').Router();
+const authMiddleware = require('../middlewares/authe')
 let Exercise = require('../models/exercise.model');
+
 
 router.route('/').get((req,res)=>{
     Exercise.find()
     .then(exercises=>res.json(exercises))
-    .catch(err=>res.status(400).json('Error: '+err));
+    .catch(err=>res.status(400).json('Error: are ese kese '+err));
 });
 
 router.route('/add').post((req,res)=>{

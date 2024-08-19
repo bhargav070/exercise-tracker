@@ -49,9 +49,15 @@ function CreateExercise() {
       date,
     };
 
+    
+    const token = localStorage.getItem('token');
+
     // Send the exercise data to the server for saving
-    axios
-      .post("http://localhost:5000/exercises/add", exercise)
+    axios.post("http://localhost:5000/exercises/add", exercise , {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
       .then((res) => {
         console.log(res.data);
       })
@@ -65,7 +71,7 @@ function CreateExercise() {
     setDuration(0);
     setDate(new Date());
 
-    window.location = "/";
+    window.location = "/exercises";
   };
 
   return (
