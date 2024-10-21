@@ -11,7 +11,7 @@ function Signup() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/auth/signup", { username, password })
+      .post(`${process.env.REACT_APP_API_URL_DEPLOYED}/auth/signup`, { username, password })
       .then((res) => {
         window.location = './login'
       })

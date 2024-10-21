@@ -9,7 +9,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:5000/auth/login", { username, password })
+    axios.post(`${process.env.REACT_APP_API_URL_DEPLOYED}/auth/login`, { username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         window.location = "/exercises";
