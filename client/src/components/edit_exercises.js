@@ -84,7 +84,7 @@ function EditExercise() {
 
   return (
     <div className="form-container">
-      <h3>Edit Exercise Log</h3>
+      <h3 className='create-title'>Edit Exercise Log</h3>
       <form onSubmit={onSubmit} className="exercise-form">
         <div className="form-group">
           <label className="label">Username: </label>

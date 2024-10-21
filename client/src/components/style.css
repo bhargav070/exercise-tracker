@@ -117,6 +117,10 @@
 
   /* CreateExercise.css */
 
+.create-title {
+  text-align: center;
+}
+
 .create-exercise-container {
     width: 50%;
     margin: 0 auto;
@@ -202,10 +206,7 @@
     border-radius: 5px;
     transition: background-color 0.3s ease;
   }
-  
-  .home-button:hover {
-    background-color: #0056b3;
-  }
+
 
   /* styling for home.js */
   .navbar-btn {

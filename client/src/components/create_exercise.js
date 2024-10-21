@@ -76,7 +76,7 @@ function CreateExercise() {
 
   return (
     <div className="create-exercise-container">
-      <h3>Create New Exercise</h3>
+      <h3 className="create-title">Create New Exercise</h3>
       <form onSubmit={handleSubmit} className="exercise-form">
         <div className="form-group mb-3">
           <label className="mb-2">Username: </label>
