@@ -30,7 +30,7 @@ function ExerciseList() {
     const token = localStorage.getItem('token');
 
     // Fetch exercises with token in headers
-    axios.get('http://localhost:5000/exercises/', {
+    axios.get(`${process.env.REACT_APP_API_URL_DEPLOYED}/exercises`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -46,7 +46,7 @@ function ExerciseList() {
   const deleteExercise = (id) => {
     const token = localStorage.getItem('token');
 
-    axios.delete('http://localhost:5000/exercises/' + id, {
+    axios.delete(`${process.env.REACT_APP_API_URL_DEPLOYED}/exercises` + id, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
