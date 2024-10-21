@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
-app.use(cors({ origin: 'https://exercise-tracker-xd1s.onrender.com' }));
+app.use(cors({ origin: 'https://exercise-tracker-1-54e9.onrender.com' }));
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
