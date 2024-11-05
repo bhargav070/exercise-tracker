@@ -10,8 +10,7 @@ function CreateExercise() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL_DEPLOYED}/users`)
+    axios.get(`${process.env.REACT_APP_API_URL}/users`)
       .then((response) => {
         if (response.data.length > 0) {
           setUsers(response.data.map((user) => user.username));
@@ -53,7 +52,7 @@ function CreateExercise() {
     const token = localStorage.getItem('token');
 
     // Send the exercise data to the server for saving
-    axios.post(`${process.env.REACT_APP_API_URL_DEPLOYED}/exercises/add`, exercise , {
+    axios.post(`${process.env.REACT_APP_API_URL}/exercises/add`, exercise , {
       headers: {
         'Authorization': `Bearer ${token}`
       }

@@ -30,15 +30,15 @@ router.post('/signup', async (req, res) => {
 // Login route
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-
   try {
     // Find user
     const user = await User.findOne({ username });
-    if (!user) return res.status(400).json({ msg: 'Invalid credentials' });
+    // console.log(username);
+    if (!user) return res.status(400).json({ msg: 'Invalid username' });
 
     // Check password
     const isMatch = await user.comparePassword(password);
-    if (!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
+    if (!isMatch) return res.status(400).json({ msg: 'Invalid password' });
 
     // Generate JWT token
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });

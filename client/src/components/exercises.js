@@ -30,7 +30,7 @@ function ExerciseList() {
     const token = localStorage.getItem('token');
 
     // Fetch exercises with token in headers
-    axios.get(`${process.env.REACT_APP_API_URL_DEPLOYED}/exercises`, {
+    axios.get(`${process.env.REACT_APP_API_URL}/exercises`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -46,7 +46,7 @@ function ExerciseList() {
   const deleteExercise = (id) => {
     const token = localStorage.getItem('token');
 
-    axios.delete(`${process.env.REACT_APP_API_URL_DEPLOYED}/exercises` + id, {
+    axios.delete(`${process.env.REACT_APP_API_URL}/exercises/` + id, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -56,6 +56,7 @@ function ExerciseList() {
         setExercises(exercises.filter(el => el._id !== id));
       })
       .catch((error) => {
+        console.log("delete error");
         console.log(error);
       });
   };

@@ -8,8 +8,7 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-
-app.use(cors({ origin: 'https://exercise-tracker-1-54e9.onrender.com' }));
+app.use(cors({origin: true, credentials: true}));
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
@@ -25,6 +24,11 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const authMiddleware = require('./middlewares/authe');
 
+// app.get('/', (req, res) => {
+//     console.log("server is running");
+//     res.json({ message: 'Server is up and running!' });
+//   });
+  
 app.use('/auth', authRouter);
 app.use('/exercises', authMiddleware, exercisesRouter);
 app.use('/users', usersRouter); 

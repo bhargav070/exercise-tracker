@@ -18,7 +18,7 @@ function EditExercise() {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    axios.get(`${process.env.REACT_APP_API_URL_DEPLOYED}/exercises/` + id , {
+    axios.get(`${process.env.REACT_APP_API_URL}/exercises/` + id , {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -33,7 +33,7 @@ function EditExercise() {
         console.log(error);
       });
 
-    axios.get(`${process.env.REACT_APP_API_URL_DEPLOYED}/users`)
+    axios.get(`${process.env.REACT_APP_API_URL}/users`)
       .then(response => {
         if (response.data.length > 0) {
           setUsers(response.data.map(user => user.username));
@@ -72,7 +72,7 @@ function EditExercise() {
 
 
     const token = localStorage.getItem('token');
-    axios.post(`${process.env.REACT_APP_API_URL_DEPLOYED}/exercises/update` + id, exercise , {
+    axios.post(`${process.env.REACT_APP_API_URL}/exercises/update/` + id, exercise , {
       headers: {
         'Authorization': `Bearer ${token}`
       }
