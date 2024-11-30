@@ -1,5 +1,3 @@
-Here's an example of a detailed and polished `README.md` file for your Exercise Tracker project:
-
 ---
 
 # Exercise Tracker
