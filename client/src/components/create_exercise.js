@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./style.css"; 
 
@@ -8,6 +9,7 @@ function CreateExercise() {
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/users`)
@@ -70,7 +72,7 @@ function CreateExercise() {
     setDuration(0);
     setDate(new Date());
 
-    window.location = "/exercises";
+    navigate("/exercises");
   };
 
   return (

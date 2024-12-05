@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./auth.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const Navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username);
 
-    axios.post(`http://localhost:5000/auth/login`, { username, password })
+    axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, { username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        window.location = "/exercises";
+        Navigate("/exercises");
       })
       .catch((err) => {
         console.error("Error: " + err.response.data.msg);

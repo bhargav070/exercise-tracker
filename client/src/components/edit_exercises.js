@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './style.css';
 
 function EditExercise() {
@@ -14,6 +14,7 @@ function EditExercise() {
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -79,7 +80,7 @@ function EditExercise() {
     })
       .then(res => console.log(res.data));
 
-    window.location = '/exercises';
+    navigate('/exercises');
   }
 
   return (
