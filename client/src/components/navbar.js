@@ -1,13 +1,27 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
 
-function handleLogout() {
-  localStorage.removeItem('token');
-  window.location = '/login';
-}
 
-function navbar() {
+function Navbar() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!localStorage.getItem("token")
+  );
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Remove token
+    setIsAuthenticated(false); // Update state
+    navigate("/login"); // Redirect to login page
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+  }, []);
+
+
   return (
     <nav className="navbar navbar-light bg-light navbar-expand-lg">
       <Link to="/" className="navbar-brand">
@@ -27,23 +41,24 @@ function navbar() {
           </li>
         </ul>
 
-        <div className="navbar-btn">
+        {!isAuthenticated ? (
+          <div className="navbar-btn">
           <button className="navbar-item btn btn-outline-primary">
             <Link to="/signup" className="nav-link">
               Signup
             </Link>
           </button>
-        </div>
+        </div>) :
 
-        <div className="navbar-btn">
+        (<div className="navbar-btn">
           <button className="btn btn-outline-danger logout-btn" onClick={handleLogout}>
             Logout
           </button>
-        </div>
+        </div>)}
       </div>
       <Outlet />
     </nav>
   );
 }
 
-export default navbar;
+export default Navbar;
